@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>React! React! React!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script><!-- react library -->
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script><!-- work in DOM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>\><!-- babel : transcompile JSX to Javascript. -->
+    <style>
+        #container {
+            padding : 50px;
+            background-color: #EEE;
+        }
+        #container h1 {
+            font-size: 48px;
+            font-family: sans-serif;
+            color: #0080A8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var destination = document.querySelector("#container");
+        ReactDOM.render(
+            <div>       // 하나의 엘리먼트만 생성될 수 있다.
+                <h3><i>Batman</i></h3>
+                <h3><i>Iron Man</i></h3>
+                <h3><i>Nicolas Cage</i></h3>
+                <h3><i>Mega Man</i></h3>
+            </div>,
+            destination
+        );
+</script>
+</body>
+</html>

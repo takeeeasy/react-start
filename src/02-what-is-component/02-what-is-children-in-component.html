@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Children</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script><!-- react library -->
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script><!-- work in DOM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script><!-- babel : transcompile JSX to Javascript. -->
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var Buttonify = React.createClass({
+            render: function() {
+                return(
+                    <div>
+                        <button type={this.props.behavior}>{this.props.children}</button>   //children이 여러개 중첩된 것 중 최상위 일시, 배열을 리턴함.
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <div>
+                <Buttonify behavior="Submit">SEND DATA</Buttonify>
+            </div>,
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+</html>
