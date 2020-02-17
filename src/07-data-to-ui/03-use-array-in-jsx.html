@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>More Component!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script><!-- react library -->
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script><!-- work in DOM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <!-- babel : transcompile JSX to Javascript. -->
+    <style>
+        #container {
+            padding: 50px;
+            backgroud-color: #FFF;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    var Circle = React.createClass({
+        render: function () {
+            var circleStyle = {
+                padding: 10,
+                margin: 20,
+                display: "inline-block",
+                backgroundColor: this.props.bgColor,
+                borderRadius: "50%",
+                width: 100,
+                height: 100,
+            };
+            return (
+                    <div style={circleStyle}>
+                    </div>
+            );
+        }
+    });
+    var destination = document.querySelector("#container");
+
+    var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363",
+    "#85FFC7", "#297373", "#FF8552", "#A40E4C"];
+
+    var renderData = [];
+    // JSX에서 명시적으로 엘리먼트를 지정할때는 식별자가 자동 마킹된다.
+    // 그러나 동적으로 엘리먼트를 만들때는 자동으로 부여되지 않는다.
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        renderData.push(<Circle key={i + color} bgColor={colors[i]}/> );
+    }
+
+    ReactDOM.render(
+        <div>
+            {renderData}
+        </div>,
+        destination
+    );
+</script>
+</body>
+</html>
